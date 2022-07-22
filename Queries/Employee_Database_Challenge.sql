@@ -17,9 +17,9 @@ Order By e.emp_no;
 
 -- Use Dictinct with Orderby to remove duplicate rows
 Select Distinct On (emp_no) emp_no,
-first_name, 
-last_name,
-title
+                    first_name, 
+                    last_name,
+                    title
 INTO unique_titles
 From retirement_titles
 Where to_date = '9999-01-01'
@@ -36,3 +36,24 @@ Into retiring_titles
 From unique_titles
 Group by title
 Order by Count Desc;
+
+
+-- Deliverable 2
+
+-- Find Employees Eligible for the Mentorship Program
+Select Distinct On (e.emp_no) e.emp_no, 
+       e.first_name, 
+	   e.last_name,
+	   e.birth_date,
+	   de.from_date,
+	   de.to_date,
+ 	   t.title
+Into mentorship_eligibility
+From employees as e
+Inner Join dept_emp as de
+On e.emp_no = de.emp_no
+Inner Join titles as t
+On e.emp_no = t.emp_no
+Where (de.to_date = '9999-01-01')
+      And (e.birth_date BETWEEN '1965-01-01' AND '1965-12-31')
+Order by e.emp_no;
