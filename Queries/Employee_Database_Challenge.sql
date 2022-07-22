@@ -25,4 +25,14 @@ From retirement_titles
 Where to_date = '9999-01-01'
 Order By emp_no, to_date Desc;
 
+
+-- Display data from unique_titles table
 Select * from unique_titles;
+
+
+-- Count number of titles 
+Select Count(emp_no), title
+Into retiring_titles
+From unique_titles
+Group by title
+Order by Count Desc;
