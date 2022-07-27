@@ -23,3 +23,5 @@ The purpose of this analysis is to determine the number of retiring employees pe
 - As the "silver tsunami" begins to make an impact, there are 72,458 roles that will need to be filled across 7 different categories in the organization.
 
 - A total of 1,549 employees are eligible for mentorship program.
+
+- We can query to find the number of employees by department name who are leaving the organisation.
